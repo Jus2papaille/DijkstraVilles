@@ -1,0 +1,38 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class CalculateurPlusCourtChemin [[java:dijkstra.CalculateurPlusCourtChemin]] {
+  +plusCourtChemin : [] Ville
+}
+
+class MainProg [[java:dijkstra.MainProg]] {
+  +start (ignored : Stage) : void
+  }
+
+class Application {
+}
+
+class Sommet [[java:dijkstra.Sommet]] {
+  - ville : Ville
+  - cout : int
+  - predecesseur : Sommet
+  + <<constructor>> Sommet (ville : Ville)
+  + getSommet (sommet : [] Sommet, ville : Ville) : Sommet
+  + getSommetCoutMin (sommets : [] Sommet) : Sommet
+  + {static} getSommetVoisins (sommets : [] sommets, sommet : Sommet ) : [] Sommet
+  + setCout (cout : int) : void
+  + getVille () : Ville
+  + getPredecesseur () : Sommet
+  + getCout () : int
+  +setPredecesseur (sommet : Sommet) : void
+  }
+
+  class App [[java:jfc.sae.DijkstraVilles.App]]{
+  + start (stage : Stage) : void
+  +{static} main (args : []String)
+  }
+
+Application<--MainProg
+ICalculateurPlusCourtChemin <-- CalculateurPlusCourtChemin
+
+@enduml
